@@ -20,19 +20,7 @@ public class LoginFunctionality {
 		WebDriverManager.edgedriver().setup();
 		driver = new EdgeDriver();
 		driver.get("https://classic.freecrm.com/register/");
-//		 switch (browser)
-//	        {
-//	            case "chrome":
-//	                driver = new ChromeDriver();
-//	                break;
-//	            case "edge":
-//	            	driver = new EdgeDriver();
-//	            	driver.get("https://classic.freecrm.com/register/");
-//	                break;
-//	            case "InternetExplorer":
-//	                driver = new InternetExplorerDriver();
-//	                break;
-//	        }
+
 	}
 
 	@Test

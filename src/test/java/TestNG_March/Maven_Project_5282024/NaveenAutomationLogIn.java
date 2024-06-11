@@ -49,13 +49,14 @@ public class NaveenAutomationLogIn {
 		// continue
 		driver.findElement(By.cssSelector("input[type='submit']")).submit();
 		String confirmationLinkText = driver.findElement(By.cssSelector("#account-login div ")).getText();
-		Assert.assertEquals(confirmationLinkText,"An email with a confirmation link has been sent your email address.");
-//
+		Assert.assertEquals(confirmationLinkText,
+				"An email with a confirmation link has been sent your email address.");
+
 	}
 
-//	@AfterMethod
-//	public void closingBrowser() {
-//		driver.close();
-	//}
+	@AfterMethod
+	public void closingBrowser() {
+		driver.quit();
+	}
 
 }
