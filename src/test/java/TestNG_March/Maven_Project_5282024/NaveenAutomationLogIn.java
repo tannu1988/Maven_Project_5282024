@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -20,10 +21,10 @@ public class NaveenAutomationLogIn {
 
 	@BeforeMethod
 	public void setUpBrowser() {
+
 		WebDriverManager.edgedriver().setup();
 		driver = new EdgeDriver();
-		driver.get("https://naveenautomationlabs.com/opencart/index.php?route=account/login");
-
+		driver.navigate().to("https://naveenautomationlabs.com/opencart/index.php?route=account/login");
 	}
 
 	@Test(priority = 1)
@@ -34,7 +35,7 @@ public class NaveenAutomationLogIn {
 		driver.findElement(By.id("input-password")).sendKeys("Tannu@1234");
 		// login-button
 		driver.findElement(By.cssSelector("input[type='submit']")).submit();
-
+		driver.navigate().back();
 	}
 
 	@Test(priority = 2)
@@ -48,17 +49,13 @@ public class NaveenAutomationLogIn {
 		// continue
 		driver.findElement(By.cssSelector("input[type='submit']")).submit();
 		String confirmationLinkText = driver.findElement(By.cssSelector("#account-login div ")).getText();
-
-		Assert.assertEquals(confirmationLinkText, "An email with a confirmation link has been sent your email address.");
-		
+		Assert.assertEquals(confirmationLinkText,"An email with a confirmation link has been sent your email address.");
+//
 	}
 
-	@AfterMethod
-	public void closingBrowser() {
-		driver.close();
-	}
-	
-    
-
+//	@AfterMethod
+//	public void closingBrowser() {
+//		driver.close();
+	//}
 
 }
